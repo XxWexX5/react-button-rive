@@ -1,10 +1,9 @@
 import { useState } from "react";
-
 import { useRive } from "@rive-app/react-canvas";
-
 import { motion, AnimatePresence } from "framer-motion";
 
 const STATE_MACHINE_NAME = "State Machine 1";
+
 export function App() {
   const [isShowMessage, setIsShowMessage] = useState(false);
 
@@ -13,6 +12,10 @@ export function App() {
     stateMachines: STATE_MACHINE_NAME,
     autoplay: true,
   });
+
+  const handleInteraction = () => {
+    setIsShowMessage((prev) => !prev);
+  };
 
   return (
     <div
@@ -52,8 +55,16 @@ export function App() {
         </AnimatePresence>
 
         <div
-          onClick={() => setIsShowMessage(!isShowMessage)}
-          style={{ width: 250, height: 110, cursor: "pointer" }}
+          onClick={handleInteraction}
+          onTouchStart={handleInteraction}
+          style={{
+            width: 250,
+            height: 110,
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
           <RiveComponent />
         </div>
