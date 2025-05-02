@@ -9,7 +9,7 @@ export function App() {
   const [isShowMessage, setIsShowMessage] = useState(false);
 
   const { RiveComponent } = useRive({
-    src: "src/assets/button-red.riv",
+    src: "/button-red.riv",
     stateMachines: STATE_MACHINE_NAME,
     autoplay: true,
   });
